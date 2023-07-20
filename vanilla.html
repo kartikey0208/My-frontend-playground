@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>vanilla</title>
+    </head>
+
+    <body>
+        <input type="text" placeholder="email"></input>
+        <input type="text" placeholder="password"></input>
+        <button>login</button>
+        <br><br>
+        <button onClick="page1()">1</button>
+        <button onClick="page2()">2</button>
+        <div id="problem-statements" style="width: 70vw">
+          <table>
+            <tr>
+                <td style="width: 20vw;"></td>
+                <td style="width: 20vw;"></td>
+                <td style="width: 20vw; color: red;"></td>
+            </tr>
+          </table>
+        </div>
+        <script>
+            const problems1 = [{
+                title: "201. Bitwise and number range",
+                difficulty: "Medium",
+                acceptance: "42%"
+            },
+            {
+                title: "202. Bitwise range",
+                difficulty: "Hard",
+                acceptance: "52%"
+            },
+            {
+                title: "203. Linear regression",
+                difficulty: "Medium",
+                acceptance: "82%"
+            }];
+
+            const problems2 = [{
+                title: "204. Bitwise and number range on page 2",
+                difficulty: "hard",
+                acceptance: "52%"
+            },
+            {
+                title: "205. Bitwise range on page 2",
+                difficulty: "Hard",
+                acceptance: "62%"
+            },
+            {
+                title: "206. Linear regression on page 2",
+                difficulty: "Hard",
+                acceptance: "8%"
+            }];
+
+            function renderProblems(problems) {
+                const parentEl = document.getElementById("problem-statements");
+                parentEl.innerHTML = '';
+                const tableTag = document.createElement("table");
+                
+                for (let i=0; i<problems.length; i++){
+                    const trTag = document.createElement("tr");
+
+                    const tdEl1 = document.createElement("td");
+                    tdEl1.innerHTML = problems[i].title;
+
+                    const tdEl2 = document.createElement("td");
+                    tdEl2.innerHTML = problems[i].difficulty;
+
+                    const tdEl3 = document.createElement("td");
+                    tdEl3.innerHTML = problems[i].acceptance;
+
+                    trTag.appendChild(tdEl1);
+                    trTag.appendChild(tdEl2);
+                    trTag.appendChild(tdEl3);
+                    tableTag.appendChild(trTag);
+                }
+                parentEl.appendChild(tableTag);
+            }
+
+            function page1 () {
+                renderProblems(problems1);
+            }
+
+            function page2 () {
+                renderProblems(problems2);
+            }
+        </script>
+    </body>
+</html>
